@@ -49,5 +49,5 @@ if (color === "blue" || special === "pencil") {
 }
 
 if (color !== "pink" && special !== "pen") {
-  console.log("I don't have a pink pen");
+  console.log("I definately don't have a pink pen");
 }
