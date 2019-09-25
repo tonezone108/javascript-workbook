@@ -34,16 +34,6 @@ function horizontalWin() {
   ) {
     printBoard();
     console.log("Player " + playerTurn + " wins!");
-    playerTurn = "X";
-    board[0][0] = " ";
-    board[0][1] = " ";
-    board[0][2] = " ";
-    board[1][0] = " ";
-    board[1][1] = " ";
-    board[1][2] = " ";
-    board[2][0] = " ";
-    board[2][1] = " ";
-    board[2][2] = " ";
     return true;
   }
 }
@@ -63,16 +53,6 @@ function verticalWin() {
   ) {
     printBoard();
     console.log("Player " + playerTurn + " wins!");
-    playerTurn = "X";
-    board[0][0] = " ";
-    board[0][1] = " ";
-    board[0][2] = " ";
-    board[1][0] = " ";
-    board[1][1] = " ";
-    board[1][2] = " ";
-    board[2][0] = " ";
-    board[2][1] = " ";
-    board[2][2] = " ";
     return true;
   }
 }
@@ -89,30 +69,24 @@ function diagonalWin() {
   ) {
     printBoard();
     console.log("Player " + playerTurn + " wins!");
-    playerTurn = "X";
-    board[0][0] = " ";
-    board[0][1] = " ";
-    board[0][2] = " ";
-    board[1][0] = " ";
-    board[1][1] = " ";
-    board[1][2] = " ";
-    board[2][0] = " ";
-    board[2][1] = " ";
-    board[2][2] = " ";
     return true;
   }
 }
 
 function checkForWin() {
   // Your code here
-  var horizontalWin = horizontalWin();
-  var verticalWin = verticalWin();
-  var diagonalWin = diagonalWin();
+  // var horizontalWin = horizontalWin();
+  // var verticalWin = verticalWin();
+  // var diagonalWin = diagonalWin();
 
-  if (horizontalWin || verticalWin || diagonalWin) {
+  if (horizontalWin() || verticalWin() || diagonalWin()) {
     return true;
+  } else {
+    return false;
   }
+}
 
+function checkForDraw() {
   if (
     board[0][0] !== " " &&
     board[0][1] !== " " &&
@@ -125,17 +99,10 @@ function checkForWin() {
     board[2][2] !== " "
   ) {
     printBoard();
-    console.log("Its draw!");
-    playerTurn = "X";
-    board[0][0] = " ";
-    board[0][1] = " ";
-    board[0][2] = " ";
-    board[1][0] = " ";
-    board[1][1] = " ";
-    board[1][2] = " ";
-    board[2][0] = " ";
-    board[2][1] = " ";
-    board[2][2] = " ";
+    console.log("Its a draw!");
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -143,12 +110,31 @@ function ticTacToe(row, column) {
   // Your code here
   if (row > 2 || column > 2) {
     console.log("Cordiantes must be between 0 and 2. Try again.");
+  } else if (row.length > 1 || column.length > 1) {
+    console.log("Single digits please");
   } else if (board[row][column] == " ") {
     board[row][column] = playerTurn;
-    var checkForWin = checkForWin();
-    if (playerTurn == "X" && checkForWin !== true) {
+    // var checkForWin = checkForWin();
+    if (checkForWin() || checkForDraw()) {
+      board[0][0] = " ";
+      board[0][1] = " ";
+      board[0][2] = " ";
+      board[1][0] = " ";
+      board[1][1] = " ";
+      board[1][2] = " ";
+      board[2][0] = " ";
+      board[2][1] = " ";
+      board[2][2] = " ";
+      playerTurn = "X";
+    } else if (
+      playerTurn == "X" &&
+      (checkForWin() == false || checkForDraw() == false)
+    ) {
       playerTurn = "O";
-    } else {
+    } else if (
+      playerTurn == "O" &&
+      (checkForWin() == false || checkForDraw() == true)
+    ) {
       playerTurn = "X";
     }
   } else {
