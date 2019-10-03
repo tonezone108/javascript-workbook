@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="tictactoe.css" />
+    <script src="tictactoe.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- make new method to handle input, handleInput(0,0) -->
+
+      <section class="board">
+        <div id="00" class="zero" onclick="handleInput(0,0)"></div>
+        <div id="01" class="one" onclick="handleInput(0,1)"></div>
+        <div id="02" class="two" onclick="handleInput(0,2)"></div>
+        <div id="10" class="three" onclick="handleInput(1,0)"></div>
+        <div id="11" class="four" onclick="handleInput(1,1)"></div>
+        <div id="12" class="five" onclick="handleInput(1,2)"></div>
+        <div id="20" class="six" onclick="handleInput(2,0)"></div>
+        <div id="21" class="seven" onclick="handleInput(2,1)"></div>
+        <div id="22" class="eight" onclick="handleInput(2,2)"></div>
+      </section>
+      <section class="bottom">
+        <div class="logo">TIC TAC TOE</div>
+        <button onclick="reset()">RESET</button>
+      </section>
+    </main>
+  </body>
+</html>
