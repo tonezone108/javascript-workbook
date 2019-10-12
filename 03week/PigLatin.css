@@ -1,0 +1,61 @@
+body {
+  background: sandybrown;
+}
+
+div.title {
+  display: flex;
+  justify-content: center;
+  grid-area: title;
+  background: red;
+  width: auto;
+  height: auto;
+  margin: 10px;
+}
+
+input.input {
+  padding: 10px;
+  font-size: 25px;
+}
+
+p {
+  font-size: 25px;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div.input {
+  display: flex;
+  justify-content: center;
+  grid-area: input;
+}
+
+div.button {
+  display: flex;
+  justify-content: center;
+  grid-area: button;
+}
+div.output {
+  display: flex;
+  justify-content: center;
+  grid-area: output;
+}
+
+#pigLatinText {
+  color: red;
+  font-family: "Times New Roman", Times, serif;
+  padding: 10px;
+  font-size: 50px;
+}
+
+main {
+  display: grid;
+  grid-row-gap: 35px;
+  grid-template-columns: 1 fr;
+  grid-template-areas:
+    "title"
+    "input"
+    "button"
+    "output";
+}
